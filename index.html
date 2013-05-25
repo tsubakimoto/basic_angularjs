@@ -4,11 +4,17 @@
 	<meta charset="UTF-8">
 	<title>AngularJSの練習</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+	<script src="myscript.js"></script>
 </head>
 <body>
 	<h1>AngularJSの練習</h1>
-	<input type="text" ng-model="name">
-	<p>こんにちは！{{name}}</p><!-- ng-model属性の同値が設定される -->
-	<p>こんにちは！{{5 * 3}}</p><!-- jsの処理を入れることもできる -->
+	<div ng-controller="mainCtrl">
+		<p>{{users.length}} users.</p>
+		<ul>
+			<li ng-repeat="user in users">
+				{{user.name}} {users.score}}
+			</li>
+		</ul>
+	</div>
 </body>
 </html>
