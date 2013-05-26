@@ -13,14 +13,11 @@
 <body>
 	<h1>AngularJSの練習</h1>
 	<div ng-controller="mainCtrl">
-		<ul>
-			<li ng-repeat="user in users" ng-controller="userItemCtrl">
-				<!-- 「|」でフィルタを設定できる -->
-				{{user.name}} {{user.score}}
-				
-				<button ng-click="increment()">+1</button>
-			</li>
-		</ul>
+		<form name="myName" ng-submit="addUser()">
+			<p>Name<input type="text" name="name" ng-model="user.name"></p>
+			<p><input type="submit" value="add"></p>
+		</form>
+		<pre>{{user|json}}</pre>
 	</div>
 </body>
 </html>
