@@ -5,33 +5,36 @@
 	<title>AngularJSの練習</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
 	<script src="myscript.js"></script>
+	<style>
+	.even { background: #ccc; ;}
+	.odd { background: pink; ;}
+	</style>
 </head>
 <body>
 	<h1>AngularJSの練習</h1>
 	<div ng-controller="mainCtrl">
 		<ul>
-			<li ng-repeat="user in users|limitTo:5">
+			<li ng-repeat="user in users">
 				<!-- 「|」でフィルタを設定できる -->
-				{{user.name}} {{user.score}}
+				{{$index}} {{user.name}} {{user.score}}
 			</li>
 		</ul>
 		<ul>
-			<li ng-repeat="user in users|orderBy:'score'">
+			<li ng-repeat="user in users">
 				<!-- 「|」でフィルタを設定できる -->
-				{{user.name}} {{user.score}}
+				{{$index + 1}} {{user.name}} {{user.score}}
 			</li>
 		</ul>
 		<ul>
-			<li ng-repeat="user in users|orderBy:'-score'|limitTo:3">
+			<li ng-repeat="user in users">
 				<!-- 「|」でフィルタを設定できる -->
-				{{user.name}} {{user.score}}
+				{{$index + 1}} {{$first}} {{$middle}} {{$last}} {{user.name}} {{user.score}}
 			</li>
 		</ul>
-		<p><input type="text" ng-model="query.name"></p>
 		<ul>
-			<li ng-repeat="user in users|filter:query">
+			<li ng-repeat="user in users" ng-class-even="'even'" ng-class-odd="'odd'">
 				<!-- 「|」でフィルタを設定できる -->
-				{{user.name}} {{user.score}}
+				{{$index + 1}} {{$first}} {{$middle}} {{$last}} {{user.name}} {{user.score}}
 			</li>
 		</ul>
 	</div>
