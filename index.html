@@ -15,16 +15,8 @@
 	<div ng-controller="mainCtrl">
 		<!-- novalidate属性はHTML5のValidationを止め、AngularJSのValidationを行うための属性 -->
 		<form novalidate name="myForm" ng-submit="addUser()">
-			<p>18+:
-				<input type="checkbox" ng-model="user.adult" ng-true-value="adult" ng-false-value="child">
-			</p>
-			<p><input type="submit" value="add"></p>
-			<p>Phone:
-				<input type="radio" ng-model="user.phone" value="iPhone">iPhone
-				<input type="radio" ng-model="user.phone" value="Android">Android
-			</p>
-			<p>Memo:
-				<textarea name="" id="" cols="30" rows="10" ng-model="user.memo" ng-maxlength="140"></textarea>{{140-user.memo.length}}
+			<p>Color:
+				<select ng-model="user.color" ng-options="'label:' + color for color in ['red', 'blue', 'pink']" ng-init="user.color='red'"></select>
 			</p>
 			<p><input type="submit" value="add"></p>
 		</form>
