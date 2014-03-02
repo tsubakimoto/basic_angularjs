@@ -9,7 +9,12 @@
 <body>
     <h1>AngularJSの練習</h1>
     <div ng-controller="mainCtrl">
-        
+        <p>{{users.length}}</p>
+        <ul>
+            <li ng-repeat="user in users">
+                {{user.name}} {{user.score}}
+            </li>
+        </ul>
     </div>
     
 <!-- #02
