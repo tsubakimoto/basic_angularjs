@@ -11,3 +11,11 @@ var mainCtrl = function($scope) {
         {"name":"tsubaki3", "score":72.1}
     ];
 }
+
+// ng-controllerを入れ子にすると親要素のデータにアクセスできる
+var userItemCtrl = function($scope) {
+    $scope.increment = function() {
+        // $scope.user は親要素のデータ
+        $scope.user.score++;
+    }
+}
