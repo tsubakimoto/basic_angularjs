@@ -9,12 +9,22 @@
 <body>
     <h1>AngularJSの練習</h1>
     <div ng-controller="mainCtrl">
-        <ul>
-            <li ng-repeat="user in users" ng-controller="userItemCtrl">
-                {{user.name}} {{user.score}}
-                <button ng-click="increment()">+1</button>
-            </li>
-        </ul>
+        <!-- AngularJSのバリデーションを使うときは、form要素にnovalidate属性をつける -->
+        <form novalidate name="myForm" ng-submit="addUser()">
+            <p>
+                Name:<input type="text" name="name" ng-model="user.name" required ng-minlength="5" ng-maxlength="8">
+                <!-- エラーメッセージ -->
+                <span ng-show="myForm.name.$error.required">必須だよ！</span>
+                <span ng-show="myForm.name.$error.minlength">少ないよ！</span>
+                <span ng-show="myForm.name.$error.maxlength">多いよ！</span>
+            </p>
+            <p>
+                <input type="submit" value="add">
+            </p>
+        </form>
+        
+        <!-- デバッグ用のテクニック、JSON形式で表示してくれる -->
+        <pre>{{user|json}}</pre>
     </div>
 </body>
 </html>
