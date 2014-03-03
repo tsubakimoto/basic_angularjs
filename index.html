@@ -5,35 +5,21 @@
     <title>AngularJSの練習</title>
     <script src="./angular.min.js"></script>
     <script src="./myscript.js"></script>
+    <style>
+        .even {
+            background: #ccc;
+        }
+        .odd {
+            background: #999;
+        }
+    </style>
 </head>
 <body>
     <h1>AngularJSの練習</h1>
     <div ng-controller="mainCtrl">
-<!--        <p><input type="text" ng-model="query"></p>-->
-        <p><input type="text" ng-model="query.name"></p>
         <ul>
-<!--
-            <li ng-repeat="user in users | limitTo:5">
-                {{user.name}} {{user.score}}
-            </li>
--->
-<!--
-            <li ng-repeat="user in users | orderBy:'score'">
-                {{user.name}} {{user.score}}
-            </li>
--->
-<!--
-            <li ng-repeat="user in users | orderBy:'-score'">
-                {{user.name}} {{user.score}}
-            </li>
--->
-<!--
-            <li ng-repeat="user in users | orderBy:'-score' | limitTo:3">
-                {{user.name}} {{user.score}}
-            </li>
--->
-            <li ng-repeat="user in users | filter:query">
-                {{user.name}} {{user.score}}
+            <li ng-repeat="user in users" ng-class-even="'even'" ng-class-odd="'odd'">
+                {{$index+1}} {{$first}} {{$middle}} {{$last}} {{user.name}} {{user.score}}
             </li>
         </ul>
     </div>
