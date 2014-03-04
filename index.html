@@ -12,32 +12,21 @@
         <!-- AngularJSのバリデーションを使うときは、form要素にnovalidate属性をつける -->
         <form novalidate name="myForm" ng-submit="addUser()">
             <p>
-                Name:<input type="text" name="name" ng-model="user.name" required ng-minlength="5" ng-maxlength="8">
-                <!-- エラーメッセージ -->
-                <span ng-show="myForm.name.$error.required">必須だよ！</span>
-                <span ng-show="myForm.name.$error.minlength">少ないよ！</span>
-                <span ng-show="myForm.name.$error.maxlength">多いよ！</span>
+                18+:<input type="checkbox" ng-model="user.adult" ng-true-value="adult" ng-false-value="child">
             </p>
             
             <p>
-                Score:<input type="number" name="score" ng-model="user.score">
+                Phone:
+                <input type="radio" value="iPhone" ng-model="user.phone"> iPhone
+                <input type="radio" value="Android" ng-model="user.phone"> Android
             </p>
             
             <p>
-                Email:<input type="email" name="email" ng-model="user.email">
-                <!-- エラーメッセージ -->
-                <span ng-show="myForm.email.$error.email">メールアドレスの形式がおかしいよ！</span>
+                Memo:
+                <textarea ng-model="user.memo" ng-maxlength="140"></textarea>{{140-user.memo.length}}
             </p>
             
-            <p>
-                URL:<input type="url" name="url" ng-model="user.url">
-                <!-- エラーメッセージ -->
-                <span ng-show="myForm.url.$error.url">URLの形式がおかしいよ！</span>
-            </p>
-            
-            <p>
-                <input type="submit" value="add">
-            </p>
+            <p><input type="submit" value="add"></p>
         </form>
         
         <!-- デバッグ用のテクニック、JSON形式で表示してくれる -->
