@@ -12,10 +12,10 @@
         <!-- AngularJSのバリデーションを使うときは、form要素にnovalidate属性をつける -->
         <form novalidate name="myForm" ng-submit="addUser()">
             <!-- ng-options="xxx for xxx in [(array)]" -->
-            <!-- ng-init="初期値" -->
+            <!-- ng-init="user.xxx=初期値" -->
             <p>
                 Color:
-                <select ng-model="user.color" ng-options="'label:'+color for color in ['red', 'blue', 'pink']" ng-init="user.color='blue'"></select>
+                <select ng-model="user.color" ng-options="c for c in colors" ng-init="user.color=initColor"></select>
             </p>
             
             <p><input type="submit" value="add"></p>
