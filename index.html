@@ -12,18 +12,8 @@
         <!-- AngularJSのバリデーションを使うときは、form要素にnovalidate属性をつける -->
         <form novalidate name="myForm" ng-submit="addUser()">
             <p>
-                18+:<input type="checkbox" ng-model="user.adult" ng-true-value="adult" ng-false-value="child">
-            </p>
-            
-            <p>
-                Phone:
-                <input type="radio" value="iPhone" ng-model="user.phone"> iPhone
-                <input type="radio" value="Android" ng-model="user.phone"> Android
-            </p>
-            
-            <p>
-                Memo:
-                <textarea ng-model="user.memo" ng-maxlength="140"></textarea>{{140-user.memo.length}}
+                Color:
+                <select ng-model="user.color" ng-options="'label:'+color for color in ['red', 'blue', 'pink']" ng-init="user.color='blue'"></select>
             </p>
             
             <p><input type="submit" value="add"></p>
